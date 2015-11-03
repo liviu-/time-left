@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
-HOUR=$1;
-MINUTE=$2;
+# Default values if absolute time not given
+if [ "$#" -eq 0 ];then
+    HOUR=$(date | awk -F'[ :]' '$0=$5');
+    MINUTE=30;
+else
+    HOUR=$1;
+    MINUTE=$2;
+fi
 
 while true;
 do
