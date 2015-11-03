@@ -2,7 +2,11 @@
 
 # Default values if absolute time not given
 if [ "$#" -eq 0 ];then
+    CURRENT_MINUTE=$(date | awk -F'[ :]' '$0=$6');
     HOUR=$(date | awk -F'[ :]' '$0=$5');
+    if (( $CURRENT_MINUTE > 30 )); then
+        ((HOUR++))
+    fi
     MINUTE=30;
 else
     HOUR=$1;
