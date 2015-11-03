@@ -20,6 +20,7 @@ do
     DIFFERENCE=$(($MAX_TIME - $CURRENT_TIME))
     if [[ $DIFFERENCE > 0 ]]
     then
+        clear;
         echo $DIFFERENCE " minutes left";
         sleep 60
     else
